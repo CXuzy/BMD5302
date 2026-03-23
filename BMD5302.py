@@ -11,7 +11,7 @@ headers = {
     "X-Requested-With": "XMLHttpRequest",
 }
 
-def fetch_period_history(sedol: str, period: str = "3y") -> pd.DataFrame:
+def fetch_period_history(sedol: str, period: str = "3y") -> pd.DataFrame:  #period can also change
     payload = {
         "paramSedolnumber": sedol,
         "paramPeriod": period
@@ -41,7 +41,7 @@ def fetch_period_history(sedol: str, period: str = "3y") -> pd.DataFrame:
         df = df.sort_values("date").reset_index(drop=True)
     return df
 
-codes = ["FIUSCA"]  # 后面把别的基金代码加进来
+codes = ["FIUSCA"]  # which can change
 all_df = []
 
 for code in codes:
@@ -57,4 +57,4 @@ for code in codes:
 if all_df:
     final_df = pd.concat(all_df, ignore_index=True)
     final_df.to_excel("FIUSCA_funds_3y_history.xlsx", index=False)
-    print("已保存：FIUSCA_funds_3y_history.xlsx")
+    print("saved：FIUSCA_funds_3y_history.xlsx")
