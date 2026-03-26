@@ -41,7 +41,7 @@ def fetch_period_history(sedol: str, period: str = "3y") -> pd.DataFrame:  #peri
         df = df.sort_values("date").reset_index(drop=True)
     return df
 
-codes = ["FIUSCA"]  # which can change
+codes = ["FI3043","BGF153","ALZP41","JPM052","FI3068","370046","SCD102","BGF061","JPM124","JPM070"]  # which can change
 all_df = []
 
 for code in codes:
